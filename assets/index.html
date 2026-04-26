@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ReciclAmBarna</title>
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    h1 { font-size: 1.6rem; color: #fff; }
+    #video-container {
+      position: relative;
+      width: 480px;
+      max-width: 95vw;
+    }
+    #cam {
+      width: 100%;
+      border-radius: 12px;
+      border: 4px solid #333;
+      display: block;
+      transition: border-color 0.4s;
+    }
+    #label-text {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      transition: color 0.4s;
+    }
+    #led-indicator {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #222;
+      border: 3px solid #444;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+    #status { font-size: 0.85rem; color: #888; }
+    #error-container {
+      display: none;
+      color: #ff4444;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <img src="img/logo.svg" alt="Arduino" style="height:40px; opacity:0.7">
+  <h1>♻️ ReciclAmBarna</h1>
+
+  <div id="error-container"></div>
+
+  <div id="video-container">
+    <img id="cam" src="" alt="cámara">
+    <div id="label-text">Esperando clasificación…</div>
+  </div>
+
+  <div id="led-indicator"></div>
+  <div id="status">Conectando…</div>
+
+  <script src="libs/socket.io.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
